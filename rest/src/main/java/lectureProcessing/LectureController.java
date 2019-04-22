@@ -2,6 +2,7 @@ package lectureProcessing;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -60,6 +61,12 @@ class LectureController {
 			.map(lect -> {
 				lect.setLecturerName(newLect.getLecturerName());
 				lect.setTheme(newLect.getTheme());
+				lect.setAbstractContent(newLect.getAbstractContent());
+				lect.setTimeStart(newLect.getTimeStart());
+				lect.setIntTimeStart(newLect.getIntTimeStart());
+				lect.setTimeEnd(newLect.getTimeEnd());
+				lect.setIntTimeEnd(newLect.getIntTimeEnd());
+				lect.setAttentedClients(newLect.getAttentedClients());
 				return repository.save(lect);
 			})
 			.orElseGet(() -> {
